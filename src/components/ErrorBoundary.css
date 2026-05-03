@@ -1,0 +1,156 @@
+/* Error Boundary — full-screen recovery UI */
+.error-boundary {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: var(--bg-base);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-6);
+}
+
+.error-boundary-inner {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+  max-width: 320px;
+}
+
+.error-icon {
+  font-size: 48px;
+  line-height: 1;
+}
+
+.error-boundary-inner h2 {
+  font-size: var(--text-2xl);
+  color: var(--text-primary);
+}
+
+.error-sub {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+}
+
+.error-details {
+  width: 100%;
+  text-align: left;
+  background: var(--bg-surface);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.error-details summary {
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--text-sm);
+  color: var(--text-tertiary);
+  cursor: pointer;
+}
+
+.error-stack {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--error);
+  padding: var(--space-3) var(--space-4);
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.error-actions {
+  display: flex;
+  gap: var(--space-3);
+  width: 100%;
+  margin-top: var(--space-2);
+}
+
+.error-reload {
+  flex: 1;
+  min-height: var(--touch-target-min);
+  background: var(--accent-primary);
+  color: var(--bg-base);
+  border-radius: var(--radius-lg);
+  font-weight: 600;
+  font-size: var(--text-sm);
+  transition: background-color var(--duration-normal) var(--ease-out);
+}
+
+.error-reload:hover {
+  background: var(--accent-hover);
+}
+
+.error-dismiss {
+  flex: 1;
+  min-height: var(--touch-target-min);
+  background: var(--bg-elevated);
+  color: var(--text-secondary);
+  border-radius: var(--radius-lg);
+  font-size: var(--text-sm);
+  transition: background-color var(--duration-normal) var(--ease-out);
+}
+
+.error-dismiss:hover {
+  background: var(--bg-overlay);
+}
+
+/* === GLOBAL ERROR TOAST === */
+.global-error-toast {
+  position: fixed;
+  top: var(--space-4);
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - var(--space-8));
+  max-width: var(--content-max-width);
+  background: rgba(248, 113, 113, 0.95);
+  backdrop-filter: blur(8px);
+  color: #fff;
+  border-radius: var(--radius-lg);
+  padding: var(--space-3) var(--space-4);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  z-index: calc(var(--z-modal) + 100);
+  box-shadow: var(--shadow-md);
+  animation: slideDown var(--duration-enter) var(--ease-out);
+}
+
+.global-error-toast span {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.global-error-toast button {
+  color: #fff;
+  opacity: 0.8;
+  min-width: 28px;
+  min-height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
+}
+
+.global-error-toast button:hover {
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}

@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 375 812" width="375" height="812">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d0d12"/>
+      <stop offset="100%" style="stop-color:#16161d"/>
+    </linearGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="375" height="812" fill="url(#bg)"/>
+  <!-- Header -->
+  <text x="188" y="90" font-family="system-ui,sans-serif" font-size="24" font-weight="700" fill="#f4f4f5" text-anchor="middle">Library</text>
+  <!-- Section tabs -->
+  <g transform="translate(15, 115)">
+    <text x="0" y="0" font-family="system-ui,sans-serif" font-size="13" fill="#71717a">Inbox</text>
+    <rect x="38" y="-10" width="4" height="4" rx="2" fill="#f59e0b"/>
+    <text x="58" y="0" font-family="system-ui,sans-serif" font-size="13" fill="#71717a">Today</text>
+    <text x="103" y="0" font-family="system-ui,sans-serif" font-size="13" fill="#71717a">Upcoming</text>
+    <text x="165" y="0" font-family="system-ui,sans-serif" font-size="13" fill="#71717a">All</text>
+    <text x="205" y="0" font-family="system-ui,sans-serif" font-size="13" fill="#71717a">Parking</text>
+  </g>
+  <!-- Active tab underline -->
+  <rect x="15" y="120" width="38" height="2" rx="1" fill="#f59e0b"/>
+  <!-- AI Suggestion card -->
+  <rect x="15" y="140" width="345" height="80" rx="12" fill="#16161d" stroke="#8b5cf6" stroke-width="1" opacity="0.3"/>
+  <g transform="translate(25,155)">
+    <circle cx="8" cy="4" r="8" fill="#8b5cf6" opacity="0.2"/>
+    <text x="22" y="8" font-family="system-ui,sans-serif" font-size="11" font-weight="600" fill="#8b5cf6">AI Suggest</text>
+    <text x="22" y="26" font-family="system-ui,sans-serif" font-size="12" fill="#f4f4f5">"Fix the auth flow"</text>
+    <text x="22" y="42" font-family="system-ui,sans-serif" font-size="11" fill="#71717a">Reason: Blocking deployment</text>
+    <text x="290" y="8" font-family="system-ui,sans-serif" font-size="10" fill="#10b981">High energy</text>
+    <rect x="250" y="45" width="95" height="28" rx="14" fill="#8b5cf6"/>
+    <text x="298" y="64" font-family="system-ui,sans-serif" font-size="11" font-weight="600" fill="#0d0d12" text-anchor="middle">Focus on this →</text>
+  </g>
+  <!-- Task cards -->
+  <!-- Task 1 -->
+  <g transform="translate(15, 240)">
+    <rect width="345" height="72" rx="12" fill="#16161d"/>
+    <rect x="0" y="0" width="4" height="72" rx="2" fill="#10b981"/>
+    <circle cx="26" cy="36" r="14" fill="#1e1e28" stroke="#1e1e28" stroke-width="1"/>
+    <path d="M22 36 L25 39 L31 33" stroke="#10b981" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <text x="55" y="30" font-family="system-ui,sans-serif" font-size="14" fill="#71717a" text-decoration="line-through">Refactor auth middleware</text>
+    <text x="55" y="50" font-family="system-ui,sans-serif" font-size="12" fill="#52525b">Completed</text>
+    <rect x="268" y="22" width="60" height="22" rx="11" fill="#1e1e28"/>
+    <text x="298" y="38" font-family="system-ui,sans-serif" font-size="10" fill="#71717a" text-anchor="middle">API</text>
+  </g>
+  <!-- Task 2 -->
+  <g transform="translate(15, 322)">
+    <rect width="345" height="88" rx="12" fill="#16161d"/>
+    <rect x="0" y="0" width="4" height="88" rx="2" fill="#f59e0b"/>
+    <circle cx="26" cy="30" r="14" fill="#1e1e28" stroke="#71717a" stroke-width="2"/>
+    <text x="55" y="24" font-family="system-ui,sans-serif" font-size="14" font-weight="500" fill="#f4f4f5">Fix the auth flow before deploy</text>
+    <text x="55" y="42" font-family="system-ui,sans-serif" font-size="12" fill="#71717a">2/4 subtasks done</text>
+    <!-- Subtask progress -->
+    <rect x="55" y="50" width="200" height="4" rx="2" fill="#1e1e28"/>
+    <rect x="55" y="50" width="100" height="4" rx="2" fill="#f59e0b"/>
+    <rect x="268" y="16" width="60" height="22" rx="11" fill="#1e1e28"/>
+    <text x="298" y="32" font-family="system-ui,sans-serif" font-size="10" fill="#71717a" text-anchor="middle">API</text>
+  </g>
+  <!-- Task 3 -->
+  <g transform="translate(15, 420)">
+    <rect width="345" height="64" rx="12" fill="#16161d"/>
+    <rect x="0" y="0" width="4" height="64" rx="2" fill="#71717a"/>
+    <circle cx="26" cy="32" r="14" fill="#1e1e28" stroke="#71717a" stroke-width="2"/>
+    <text x="55" y="26" font-family="system-ui,sans-serif" font-size="14" fill="#f4f4f5">Update onboarding docs</text>
+    <text x="55" y="44" font-family="system-ui,sans-serif" font-size="12" fill="#71717a">Docs</text>
+  </g>
+  <!-- Task 4 -->
+  <g transform="translate(15, 494)">
+    <rect width="345" height="64" rx="12" fill="#16161d"/>
+    <rect x="0" y="0" width="4" height="64" rx="2" fill="#8b5cf6"/>
+    <circle cx="26" cy="32" r="14" fill="#1e1e28" stroke="#71717a" stroke-width="2"/>
+    <text x="55" y="26" font-family="system-ui,sans-serif" font-size="14" fill="#f4f4f5">Research Tailscale for home server</text>
+    <text x="55" y="44" font-family="system-ui,sans-serif" font-size="12" fill="#71717a">Inbox</text>
+  </g>
+  <!-- Tab bar -->
+  <rect y="730" width="375" height="82" fill="#16161d"/>
+  <rect y="730" width="375" height="1" fill="#1e1e28"/>
+  <g transform="translate(47,732)">
+    <rect x="0" y="12" width="24" height="24" rx="4" fill="#1e1e28"/>
+    <rect x="2" y="18" width="8" height="12" rx="4" fill="#71717a"/>
+    <rect x="10" y="22" width="6" height="8" rx="3" fill="#71717a"/>
+    <rect x="6" y="28" width="12" height="2" rx="1" fill="#71717a"/>
+    <text y="50" font-family="system-ui" font-size="10" fill="#71717a" text-anchor="middle">Capture</text>
+  </g>
+  <g transform="translate(132,732)">
+    <rect x="0" y="12" width="24" height="24" rx="4" fill="#f59e0b" opacity="0.15"/>
+    <text x="12" y="22" font-family="system-ui" font-size="7" fill="#f59e0b" text-anchor="middle">📚</text>
+    <text y="50" font-family="system-ui" font-size="10" fill="#f59e0b" text-anchor="middle">Library</text>
+  </g>
+  <g transform="translate(217,732)">
+    <circle cx="12" cy="24" r="10" fill="none" stroke="#71717a" stroke-width="2"/>
+    <path d="M12 16 L12 20 L14 22" stroke="#71717a" stroke-width="2" fill="none"/>
+    <text y="50" font-family="system-ui" font-size="10" fill="#71717a" text-anchor="middle">Focus</text>
+  </g>
+  <g transform="translate(302,732)">
+    <rect x="4" y="16" width="16" height="16" rx="3" fill="none" stroke="#71717a" stroke-width="2"/>
+    <circle cx="12" cy="24" r="2" fill="#71717a"/>
+    <text y="50" font-family="system-ui" font-size="10" fill="#71717a" text-anchor="middle">Settings</text>
+  </g>
+</svg>

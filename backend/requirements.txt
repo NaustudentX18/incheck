@@ -1,0 +1,7 @@
+# Kokoro TTS Backend
+# Install: pip install -r requirements.txt
+
+kokoro>=0.8
+soundfile>=0.12
+flask>=3.0
+flask-cors>=4.0

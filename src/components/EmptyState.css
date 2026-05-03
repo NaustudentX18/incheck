@@ -1,0 +1,36 @@
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 48px 24px;
+  text-align: center;
+}
+
+.empty-blob {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.6;
+}
+
+.empty-blob-warm { background: radial-gradient(circle, rgba(245, 158, 11, 0.2) 0%, transparent 70%); }
+.empty-blob-success { background: radial-gradient(circle, rgba(16, 185, 129, 0.2) 0%, transparent 70%); }
+.empty-blob-cool { background: radial-gradient(circle, rgba(139, 92, 246, 0.2) 0%, transparent 70%); }
+.empty-blob-muted { background: radial-gradient(circle, rgba(113, 113, 122, 0.15) 0%, transparent 70%); }
+
+.empty-headline { font-size: 1.1rem; font-weight: 600; color: var(--text-primary); margin: 0; }
+
+.empty-subtext {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  max-width: 280px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.empty-cta { margin-top: 8px; }
