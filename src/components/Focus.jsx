@@ -113,9 +113,17 @@ export default function Focus({ items }) {
   const startTimer = useCallback(() => {
     setIsRunning(true)
     setShowTip(false)
-    // If AI companion is on, fetch first message after showing view
     if (settings.focusCompanion) {
-      setTimeout(() => fetchCompanion('work'), 3000)
+      setTimeout(() => {
+        llmService.getCompanionMessage({
+          phase: 'work',
+          sessionCount,
+          resistance,
+          taskTitle: activeItem?.title || activeItem?.content?.slice(0, 50),
+        }).then(msg => {
+          if (msg) { setCompanionMessage(msg); setShowCompanion(true) }
+        }).catch(() => {})
+      }, 3000)
     }
     intervalRef.current = setInterval(() => {
       setTimeLeft(prev => {
@@ -127,7 +135,7 @@ export default function Focus({ items }) {
         return prev - 1
       })
     }, 1000)
-  }, [handleTimerEnd, settings.focusCompanion, fetchCompanion])
+  }, [handleTimerEnd])
 
   const pickForSlot = (slotIdx, item) => {
     setFocusSlots(prev => {
@@ -434,7 +442,16 @@ export default function Focus({ items }) {
                   <p>{companionMessage}</p>
                   <button
                     className="companion-refresh"
-                    onClick={() => fetchCompanion('encouragement')}
+                    onClick={() => {
+                        llmService.getCompanionMessage({
+                          phase: 'encouragement',
+                          sessionCount,
+                          resistance,
+                          taskTitle: activeItem?.title || activeItem?.content?.slice(0, 50),
+                        }).then(msg => {
+                          if (msg) { setCompanionMessage(msg); setShowCompanion(true) }
+                        }).catch(() => {})
+                      }}
                     aria-label="Get new message"
                   >
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
