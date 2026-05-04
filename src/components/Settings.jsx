@@ -116,19 +116,25 @@ export default function Settings() {
   // Check LLM status on mount
   useEffect(() => {
     const checkLlm = async () => {
-      const ok = await llmService.ping()
-      setLlmStatus(ok ? 'connected' : 'offline')
-      if (ok) {
-        const availableModels = await llmService.models
-        setModels(availableModels || [])
+      const url = localStorage.getItem('ollama_url') || 'http://100.124.255.77:11434'
+      // Try the full /api/tags path instead of root (more reliable)
+      try {
+        const res = await fetch(`${url}/api/tags`, {
+          signal: AbortSignal.timeout(5000),
+        })
+        if (res.ok) {
+          setLlmStatus('connected')
+          const data = await res.json()
+          setModels((data.models || []).map(m => m.name))
+        } else {
+          setLlmStatus('offline')
+        }
+      } catch (err) {
+        console.warn('[Settings] LLM check failed:', err.message)
+        setLlmStatus('offline')
       }
     }
     checkLlm()
-    const unsub = llmService.onStatusChange((status) => {
-      if (status === 'loading') setLlmStatus('loading')
-      else if (status === 'error') setLlmStatus('offline')
-    })
-    return unsub
   }, [])
 
   // Sync settings to store on change
@@ -419,7 +425,7 @@ export default function Settings() {
           {showOllamaInput ? (
             <div className="input-row">
               <input
-                id="ollama-url" type="url" placeholder="http://localhost:11434"
+                id="ollama-url" type="url" placeholder="http://100.124.255.77:11434"
                 value={ollamaInput}
                 onChange={e => setOllamaInput(e.target.value)}
                 autoFocus
@@ -440,8 +446,8 @@ export default function Settings() {
               }}>Save</button>
             </div>
           ) : (
-            <button className="action-btn inline" onClick={() => { setOllamaInput(localStorage.getItem('ollama_url') || 'http://localhost:11434'); setShowOllamaInput(true) }}>
-              {localStorage.getItem('ollama_url') || 'http://localhost:11434'}
+            <button className="action-btn inline" onClick={() => { setOllamaInput(localStorage.getItem('ollama_url') || 'http://100.124.255.77:11434'); setShowOllamaInput(true) }}>
+              {localStorage.getItem('ollama_url') || 'http://100.124.255.77:11434'}
             </button>
           )}
         </SettingsRow>

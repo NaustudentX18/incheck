@@ -26,7 +26,7 @@ import { persist } from 'zustand/middleware'
 const useSettings = create(
   persist(
     (set) => ({
-      ollamaUrl: 'http://localhost:11434',
+      ollamaUrl: 'http://100.124.255.77:11434',
       model: 'mistral:7b',
       deepModel: 'qwen3:8b',
       quickModel: 'qwen2.5:1.5b',
@@ -408,10 +408,11 @@ class LLMService {
       const config = useSettings.getState()
       const res = await fetch(`${config.ollamaUrl}/`, {
         method: 'GET',
-        signal: AbortSignal.timeout(3000),
+        signal: AbortSignal.timeout(5000),
       })
       return res.ok
-    } catch {
+    } catch (err) {
+      console.warn('[llmService] ping failed:', err.message)
       return false
     }
   }
